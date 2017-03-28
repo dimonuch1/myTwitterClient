@@ -12,6 +12,7 @@ class SplashViewController: UIViewController,TwitterLoginDelegate {
 
     enum Segue:String {
         case login = "LoginSegue"
+        case toApp = "TabTappedViewSegue"
     }
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -19,6 +20,8 @@ class SplashViewController: UIViewController,TwitterLoginDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        TwitterClient.sharedInstance?.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -33,19 +36,25 @@ class SplashViewController: UIViewController,TwitterLoginDelegate {
         if (!appDelegate.splashDelay) {
             appDelegate.delay(delay: 2.0,clouser: {
                 self.continueLogin()
-                
             })
         }
-        
     }
     
     func goToLogin() {
         self.performSegue(withIdentifier: Segue.login.rawValue, sender: self)
     }
     
+    func goToApp() {
+        self.performSegue(withIdentifier: Segue.toApp.rawValue, sender: self)
+    }
+    
     func continueLogin() {
         appDelegate.splashDelay = false
-        self.goToLogin()
+        if User.currentUser == nil {
+            self.goToLogin()
+        } else {
+            self.goToApp()
+        }
     }
         
 }

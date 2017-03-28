@@ -65,7 +65,7 @@
         <!--Home-->
         <scene sceneID="Fdy-60-KhZ">
             <objects>
-                <viewController id="v3b-xL-Pg5" sceneMemberID="viewController">
+                <viewController id="v3b-xL-Pg5" customClass="HomeViewController" customModule="TwitterApi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rmZ-cM-yFP"/>
                         <viewControllerLayoutGuide type="bottom" id="g8N-wb-ojP"/>
@@ -73,6 +73,16 @@
                     <view key="view" contentMode="scaleToFill" id="s3O-Cc-LpA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="js1-Oy-cCA">
+                                <rect key="frame" x="172" y="280" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="logout" destination="v3b-xL-Pg5" eventType="touchUpInside" id="V07-sP-JNI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="ypy-QN-mQC"/>
